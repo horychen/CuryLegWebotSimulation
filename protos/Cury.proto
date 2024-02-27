@@ -1,0 +1,492 @@
+#VRML_SIM R2024a utf8
+# license: Apache License 2.0
+# license url: http://www.apache.org/licenses/LICENSE-2.0
+# This is a proto file for Webots for the Cury
+# Extracted from a URDF content string
+
+PROTO Cury [
+  field  SFVec3f     translation     0 0 0
+  field  SFRotation  rotation        0 0 1 0
+  field  SFString    name            "Cury"  # Is `Robot.name`.
+  field  SFString    controller      "void"  # Is `Robot.controller`.
+  field  MFString    controllerArgs  []      # Is `Robot.controllerArgs`.
+  field  SFString    customData      ""      # Is `Robot.customData`.
+  field  SFBool      supervisor      FALSE   # Is `Robot.supervisor`.
+  field  SFBool      synchronization TRUE    # Is `Robot.synchronization`.
+  field  SFBool      selfCollision   FALSE   # Is `Robot.selfCollision`.
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    controller IS controller
+    controllerArgs IS controllerArgs
+    customData IS customData
+    supervisor IS supervisor
+    synchronization IS synchronization
+    selfCollision IS selfCollision
+    children [
+      Shape {
+        appearance DEF body_material PBRAppearance {
+          baseColor 0.898039 0.917647 0.929412
+          roughness 1.000000
+          metalness 0
+        }
+        geometry DEF body Mesh {
+          url "meshes\\body.STL"
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -1.000000 0.000000 0.000000
+          anchor 0.010500 0.350390 0.371700
+        }
+        device [
+                    PositionSensor {
+            name "shank_joint_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.010500 0.350390 0.371700
+          rotation -1.000000 0.000000 0.000000 0.418870
+          children [
+            Shape {
+              appearance DEF shank_material PBRAppearance {
+                baseColor 0.498039 0.498039 0.498039
+                roughness 1.000000
+                metalness 0
+              }
+              geometry DEF shank Mesh {
+                url "meshes\\shank.STL"
+              }
+            }
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                axis -1.000000 0.000000 0.000004
+                anchor -0.023500 0.029501 0.074362
+              }
+              device [
+                PositionSensor {
+                  name "knee_joint_sensor"
+                }
+              ]
+              endPoint Solid {
+                translation -0.023500 0.029501 0.074362
+                rotation 0.000000 1.000000 0.000000 1.570800
+                children [
+                  Shape {
+                    appearance DEF knee_material PBRAppearance {
+                      baseColor 0.898039 0.917647 0.929412
+                      roughness 1.000000
+                      metalness 0
+                    }
+                    geometry DEF knee Mesh {
+                      url "meshes\\knee.STL"
+                    }
+                  }
+                  HingeJoint {
+                    jointParameters HingeJointParameters {
+                      axis 0.000000 0.000000 1.000000
+                      anchor 0.109166 0.087619 -0.010750
+                    }
+                    device [
+                      PositionSensor {
+                        name "Joint_knee_link2_1_sensor"
+                      }
+                    ]
+                    endPoint SolidReference {
+                     solidName "shank_link_1_1"
+                    }
+                  }
+                ]
+                name "knee"
+                boundingObject USE knee
+                physics Physics {
+                  density -1
+                  mass 0.168966
+                  centerOfMass [ 0.050744 0.040728 0.023500 ]
+                  inertiaMatrix [
+                    1.836537e-04 2.740295e-04 4.354961e-04
+                    -2.038709e-04 3.902577e-08 -4.862296e-08
+                  ]
+                }
+              }
+            }
+          ]
+          name "shank"
+          boundingObject USE shank
+          physics Physics {
+            density -1
+            mass 0.836251
+            centerOfMass [ -0.000009 -0.023421 0.172151 ]
+            inertiaMatrix [
+              7.643359e-03 6.777570e-03 1.144580e-03
+              4.021087e-07 -7.247211e-07 2.155519e-03
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -1.000000 0.000000 0.000000
+          anchor -0.070000 0.319370 0.152190
+        }
+        device [
+                    PositionSensor {
+            name "motor_shank_joint_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation -0.070000 0.319370 0.152190
+          rotation -1.000000 0.000000 0.000000 0.418870
+          children [
+            Shape {
+              appearance DEF motor_shank_material PBRAppearance {
+                baseColor 0.898039 0.917647 0.929412
+                roughness 1.000000
+                metalness 0
+              }
+              geometry DEF motor_shank Mesh {
+                url "meshes\\motor_shank.STL"
+              }
+            }
+            SliderJoint {
+              jointParameters JointParameters {
+                axis 0.000000 0.300452 0.953797
+              }
+              device [
+                LinearMotor {
+                  name "screw_shank_joint"
+                  maxForce 10000
+                }
+                PositionSensor {
+                  name "screw_shank_joint_sensor"
+                }
+              ]
+              endPoint Solid {
+                translation 0.080508 0.010217 0.032491
+                rotation -0.150266 0.977159 -0.150266 1.593900
+                children [
+                  Shape {
+                    appearance DEF screw_shank_material PBRAppearance {
+                      baseColor 0.615686 0.643137 0.674510
+                      roughness 1.000000
+                      metalness 0
+                    }
+                    geometry DEF screw_shank Mesh {
+                      url "meshes\\screw_shank.STL"
+                    }
+                  }
+                  HingeJoint {
+                    jointParameters HingeJointParameters {
+                      axis 0.000000 0.000000 -1.000000
+                      anchor -0.152918 0.000018 -0.034258
+                    }
+                    device [
+                      PositionSensor {
+                        name "Joint_screw_shank_link2_1_sensor"
+                      }
+                    ]
+                    endPoint SolidReference {
+                     solidName "shank_link_1_1"
+                    }
+                  }
+                ]
+                name "screw_shank"
+                boundingObject USE screw_shank
+                physics Physics {
+                  density -1
+                  mass 0.412508
+                  centerOfMass [ -0.004694 0.000016 -0.000007 ]
+                  inertiaMatrix [
+                    1.409353e-05 2.013039e-03 2.013776e-03
+                    1.675319e-08 -9.998008e-08 -3.145690e-09
+                  ]
+                }
+              }
+            }
+          ]
+          name "motor_shank"
+          boundingObject USE motor_shank
+          physics Physics {
+            density -1
+            mass 1.160888
+            centerOfMass [ 0.080500 0.000763 0.002422 ]
+            inertiaMatrix [
+              1.841640e-03 2.517725e-03 3.849238e-03
+              1.949652e-06 -6.141524e-07 4.656397e-04
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 1.000000 -0.000007 0.000000
+          anchor 0.010500 0.302470 0.352400
+        }
+        device [
+                    PositionSensor {
+            name "shank_link_1_1_joint_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.010500 0.302470 0.352400
+          rotation 0.000004 0.978146 -0.207918 3.141594
+          children [
+            Shape {
+              appearance DEF shank_link_1_1_material PBRAppearance {
+                baseColor 0.898039 0.917647 0.929412
+                roughness 1.000000
+                metalness 0
+              }
+              geometry DEF shank_link_1_1 Mesh {
+                url "meshes\\shank_link_1_1.STL"
+              }
+            }
+          ]
+          name "shank_link_1_1"
+          boundingObject USE shank_link_1_1
+          physics Physics {
+            density -1
+            mass 0.111289
+            centerOfMass [ -0.000037 0.103280 0.011994 ]
+            inertiaMatrix [
+              2.851563e-04 4.091473e-05 2.767847e-04
+              -4.210439e-07 -4.685942e-08 3.953451e-05
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          anchor 0.090500 0.132440 0.278120
+        }
+        device [
+                    PositionSensor {
+            name "motor_hip_joint_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.090500 0.132440 0.278120
+          rotation -1.000000 0.000000 0.000000 0.418870
+          children [
+            Shape {
+              appearance DEF motor_hip_material PBRAppearance {
+                baseColor 0.776471 0.756863 0.737255
+                roughness 1.000000
+                metalness 0
+              }
+              geometry DEF motor_hip Mesh {
+                url "meshes\\motor_hip.STL"
+              }
+            }
+            SliderJoint {
+              jointParameters JointParameters {
+                axis -0.000000 0.355058 0.934844
+              }
+              device [
+                LinearMotor {
+                  name "screw_hip_joint"
+                  maxForce 10000
+                }
+                PositionSensor {
+                  name "screw_hip_joint_sensor"
+                }
+              ]
+              endPoint Solid {
+                translation -0.080484 0.008494 0.022394
+                rotation -0.177630 -0.967934 0.177630 1.603382
+                children [
+                  Shape {
+                    appearance DEF screw_hip_material PBRAppearance {
+                      baseColor 0.615686 0.643137 0.674510
+                      roughness 1.000000
+                      metalness 0
+                    }
+                    geometry DEF screw_hip Mesh {
+                      url "meshes\\screw_hip.STL"
+                    }
+                  }
+                  HingeJoint {
+                    jointParameters HingeJointParameters {
+                      axis 0.000000 0.000000 -1.000000
+                      anchor -0.155582 0.000011 -0.034234
+                    }
+                    device [
+                                            PositionSensor {
+                        name "Joint_screw_hip_link2_2_sensor"
+                      }
+                    ]
+                    endPoint SolidReference {
+                     solidName "hip_link_1_2"
+                    }
+                  }
+                ]
+                name "screw_hip"
+                boundingObject USE screw_hip
+                physics Physics {
+                  density -1
+                  mass 0.412508
+                  centerOfMass [ -0.006493 0.000010 0.000014 ]
+                  inertiaMatrix [
+                    1.409353e-05 2.013034e-03 2.013779e-03
+                    3.933427e-08 -9.336841e-08 4.149733e-09
+                  ]
+                }
+              }
+            }
+          ]
+          name "motor_hip"
+          boundingObject USE motor_hip
+          physics Physics {
+            density -1
+            mass 1.160888
+            centerOfMass [ -0.080500 -0.000902 -0.002374 ]
+            inertiaMatrix [
+              1.841640e-03 2.575902e-03 3.791061e-03
+              -1.910901e-06 7.257992e-07 5.393508e-04
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 1.000000 -0.000000 -0.000001
+          anchor 0.010000 0.101420 0.058620
+        }
+        device [
+                    PositionSensor {
+            name "Hip_Joint_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.010000 0.101420 0.058620
+          rotation -0.203566 0.957665 -0.203566 1.614042
+          children [
+            Shape {
+              appearance DEF Hip__material PBRAppearance {
+                baseColor 0.898039 0.917647 0.929412
+                roughness 1.000000
+                metalness 0
+              }
+              geometry DEF Hip_ Mesh {
+                url "meshes\\Hip .STL"
+              }
+            }
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                axis 0.000000 0.000000 1.000000
+                anchor 0.044142 -0.067975 -0.002500
+              }
+              device [
+                                PositionSensor {
+                  name "joint_ass_sensor"
+                }
+              ]
+              endPoint Solid {
+                translation 0.044142 -0.067975 -0.002500
+                children [
+                  Shape {
+                    appearance DEF ass_material PBRAppearance {
+                      baseColor 0.898039 0.917647 0.929412
+                      roughness 1.000000
+                      metalness 0
+                    }
+                    geometry DEF ass Mesh {
+                      url "meshes\\ass.STL"
+                    }
+                  }
+                  HingeJoint {
+                    jointParameters HingeJointParameters {
+                      axis 0.000000 0.000000 1.000000
+                      anchor -0.134230 -0.039707 0.036750
+                    }
+                    device [
+                                            PositionSensor {
+                        name "Joint_ass_hip_link2_2_sensor"
+                      }
+                    ]
+                    endPoint SolidReference {
+                     solidName "hip_link_1_2"
+                    }
+                  }
+                ]
+                name "ass"
+                boundingObject USE ass
+                physics Physics {
+                  density -1
+                  mass 0.168966
+                  centerOfMass [ -0.062394 -0.018457 0.002500 ]
+                  inertiaMatrix [
+                    5.362724e-05 4.040559e-04 4.354961e-04
+                    -1.136011e-04 -1.768546e-08 5.978653e-08
+                  ]
+                }
+              }
+            }
+          ]
+          name "Hip "
+          boundingObject USE Hip_
+          physics Physics {
+            density -1
+            mass 0.276023
+            centerOfMass [ 0.031473 -0.016572 0.000086 ]
+            inertiaMatrix [
+              3.779971e-04 2.686291e-04 6.282622e-04
+              1.192141e-04 -3.023430e-07 1.226949e-06
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -1.000000 0.000000 0.000000
+          anchor 0.010000 0.149350 0.077917
+        }
+        device [
+                    PositionSensor {
+            name "hip_link_1_2_joint_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.010000 0.149350 0.077917
+          rotation -1.000000 0.000000 0.000000 0.418870
+          children [
+            Shape {
+              appearance DEF hip_link_1_2_material PBRAppearance {
+                baseColor 0.898039 0.917647 0.929412
+                roughness 1.000000
+                metalness 0
+              }
+              geometry DEF hip_link_1_2 Mesh {
+                url "meshes\\hip_link_1_2.STL"
+              }
+            }
+          ]
+          name "hip_link_1_2"
+          boundingObject USE hip_link_1_2
+          physics Physics {
+            density -1
+            mass 0.111290
+            centerOfMass [ 0.000037 -0.092028 0.048390 ]
+            inertiaMatrix [
+              2.851565e-04 4.494651e-05 2.727509e-04
+              -3.759739e-07 1.953739e-07 4.997960e-05
+            ]
+          }
+        }
+      }
+    ]
+    name IS name
+    boundingObject USE body
+    physics Physics {
+      density -1
+      mass 2.275612
+      centerOfMass [ 0.010590 0.225901 0.215150 ]
+      inertiaMatrix [
+        3.307588e-02 1.873076e-02 1.451556e-02
+        -4.553757e-08 -1.059717e-07 -1.343235e-02
+      ]
+    }
+  }
+}

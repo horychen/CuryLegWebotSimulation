@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Cury">
+  <link
+    name="body">
+    <inertial>
+      <origin
+        xyz="0.0105901440518608 0.225900902518378 0.215150063540337"
+        rpy="0 0 0" />
+      <mass
+        value="2.27561173025028" />
+      <inertia
+        ixx="0.0330758849136597"
+        ixy="-4.55375714458704E-08"
+        ixz="-1.05971672379691E-07"
+        iyy="0.0187307641817114"
+        iyz="-0.0134323507130473"
+        izz="0.0145155563486738" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/body.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/body.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="shank">
+    <inertial>
+      <origin
+        xyz="-9.2916230854459E-06 -0.0234210956198034 0.172151244737705"
+        rpy="0 0 0" />
+      <mass
+        value="0.836250869579347" />
+      <inertia
+        ixx="0.00764335898527091"
+        ixy="4.02108737759995E-07"
+        ixz="-7.24721079618272E-07"
+        iyy="0.00677756995133919"
+        iyz="0.00215551938174825"
+        izz="0.00114458006848467" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/shank.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.498039215686275 0.498039215686275 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/shank.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shank_joint"
+    type="continuous">
+    <origin
+      xyz="0.0105 0.35039 0.3717"
+      rpy="-0.41887 0 0" />
+    <parent
+      link="body" />
+    <child
+      link="shank" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="knee">
+    <inertial>
+      <origin
+        xyz="0.0507438522838648 0.0407280353639849 0.0234999999999999"
+        rpy="0 0 0" />
+      <mass
+        value="0.16896557088809" />
+      <inertia
+        ixx="0.000183653661826267"
+        ixy="-0.000203870885492928"
+        ixz="3.90257663284892E-08"
+        iyy="0.000274029498899574"
+        iyz="-4.86229621465866E-08"
+        izz="0.000435496137027048" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/knee.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/knee.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="knee_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0235 0.029501 0.074362"
+      rpy="0 1.5708 0" />
+    <parent
+      link="shank" />
+    <child
+      link="knee" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="knee_link2_1">
+    <inertial>
+      <origin
+        xyz="0.119818773476801 -0.165816910808346 0.0341321656065537"
+        rpy="0 0 0" />
+      <mass
+        value="7.10511366302876" />
+      <inertia
+        ixx="0.0762420815484726"
+        ixy="0.0223133529910027"
+        ixz="5.76452759145236E-05"
+        iyy="0.189273959771324"
+        iyz="-0.000111198042110561"
+        izz="0.238444030427425" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/knee_link2_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/knee_link2_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_knee_link2_1"
+    type="continuous">
+    <origin
+      xyz="0.109166345766346 0.0876191024294878 -0.0107500000000001"
+      rpy="0 0 0" />
+    <parent
+      link="knee" />
+    <child
+      link="knee_link2_1" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="motor_shank">
+    <inertial>
+      <origin
+        xyz="0.0805 0.00076289220267739 0.00242183295225684"
+        rpy="0 0 0" />
+      <mass
+        value="1.16088770473387" />
+      <inertia
+        ixx="0.00184164009486856"
+        ixy="1.94965219000594E-06"
+        ixz="-6.14152372398836E-07"
+        iyy="0.00251772453894561"
+        iyz="0.000465639674224115"
+        izz="0.00384923765890831" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/motor_shank.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/motor_shank.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="motor_shank_joint"
+    type="continuous">
+    <origin
+      xyz="-0.07 0.31937 0.15219"
+      rpy="-0.41887 0 0" />
+    <parent
+      link="body" />
+    <child
+      link="motor_shank" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="screw_shank">
+    <inertial>
+      <origin
+        xyz="-0.0046943316501748 1.58920953677033E-05 -6.62898806314677E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.412507984580744" />
+      <inertia
+        ixx="1.4093525010169E-05"
+        ixy="1.67531922748995E-08"
+        ixz="-9.99800787411163E-08"
+        iyy="0.00201303930505335"
+        iyz="-3.14568989868767E-09"
+        izz="0.00201377561561234" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/screw_shank.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.643137254901961 0.674509803921569 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/screw_shank.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="screw_shank_joint"
+    type="prismatic">
+    <origin
+      xyz="0.0805076727337513 0.0102165203007988 0.0324911504870415"
+      rpy="-1.5707963267949 1.26562993431468 -1.5707963267949" />
+    <parent
+      link="motor_shank" />
+    <child
+      link="screw_shank" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="screw_shank_link2_1">
+    <inertial>
+      <origin
+        xyz="0.119818773476801 -0.165816910808346 0.0341321656065537"
+        rpy="0 0 0" />
+      <mass
+        value="7.10511366302876" />
+      <inertia
+        ixx="0.0762420815484726"
+        ixy="0.0223133529910027"
+        ixz="5.76452759145271E-05"
+        iyy="0.189273959771324"
+        iyz="-0.000111198042110562"
+        izz="0.238444030427425" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/screw_shank_link2_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/screw_shank_link2_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_screw_shank_link2_1"
+    type="continuous">
+    <origin
+      xyz="-0.152917679133784 1.75412417049714E-05 -0.0342576727337512"
+      rpy="0 0 0.305166392480221" />
+    <parent
+      link="screw_shank" />
+    <child
+      link="screw_shank_link2_1" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="shank_link_1_1">
+    <inertial>
+      <origin
+        xyz="-3.70134460739788E-05 0.10328044954171 0.0119938146635866"
+        rpy="0 0 0" />
+      <mass
+        value="0.111289465824211" />
+      <inertia
+        ixx="0.000285156254346125"
+        ixy="-4.21043895562268E-07"
+        ixz="-4.68594208873926E-08"
+        iyy="4.0914730047001E-05"
+        iyz="3.95345128107561E-05"
+        izz="0.000276784741852338" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/shank_link_1_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/shank_link_1_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shank_link_1_1_joint"
+    type="continuous">
+    <origin
+      xyz="0.0105 0.30247 0.3524"
+      rpy="-2.7227 0 -3.1416" />
+    <parent
+      link="body" />
+    <child
+      link="shank_link_1_1" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="motor_hip">
+    <inertial>
+      <origin
+        xyz="-0.0805 -0.000901578423969498 -0.00237369663341597"
+        rpy="0 0 0" />
+      <mass
+        value="1.16088770473387" />
+      <inertia
+        ixx="0.00184164009486941"
+        ixy="-1.91090092944238E-06"
+        ixz="7.25799170826876E-07"
+        iyy="0.00257590163883755"
+        iyz="0.000539350816302334"
+        izz="0.00379106055901722" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/motor_hip.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/motor_hip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="motor_hip_joint"
+    type="continuous">
+    <origin
+      xyz="0.0905 0.13244 0.27812"
+      rpy="-0.41887 0 0" />
+    <parent
+      link="body" />
+    <child
+      link="motor_hip" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="screw_hip">
+    <inertial>
+      <origin
+        xyz="-0.00649254751711387 9.89871310336232E-06 1.40939069093945E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.412507845128865" />
+      <inertia
+        ixx="1.40935300174425E-05"
+        ixy="3.93342725732385E-08"
+        ixz="-9.3368406971219E-08"
+        iyy="0.00201303357362831"
+        iyz="4.14973276969267E-09"
+        izz="0.00201377913721972" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/screw_hip.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.643137254901961 0.674509803921569 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/screw_hip.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="screw_hip_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.0804841417704625 0.0084940415141293 0.0223935226541688"
+      rpy="-1.5707963267949 -1.20780625727689 1.5707963267949" />
+    <parent
+      link="motor_hip" />
+    <child
+      link="screw_hip" />
+    <axis
+      xyz="0.999999999896581 -1.43818918721395E-05 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="screw_hip_link2_2">
+    <inertial>
+      <origin
+        xyz="-0.142559407462068 0.159091122242886 -0.033867834393446"
+        rpy="0 0 0" />
+      <mass
+        value="7.10511366302877" />
+      <inertia
+        ixx="0.0762420815484726"
+        ixy="0.0223133529910027"
+        ixz="5.7645275914524E-05"
+        iyy="0.189273959771324"
+        iyz="-0.000111198042110562"
+        izz="0.238444030427425" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/screw_hip_link2_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/screw_hip_link2_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_screw_hip_link2_2"
+    type="continuous">
+    <origin
+      xyz="-0.15558232086622 1.07276539624834E-05 -0.0342341417704623"
+      rpy="3.14159265358979 0 2.77860258407179" />
+    <parent
+      link="screw_hip" />
+    <child
+      link="screw_hip_link2_2" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Hip ">
+    <inertial>
+      <origin
+        xyz="0.0314732379284842 -0.0165722542902123 8.6473957227759E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.276023306419416" />
+      <inertia
+        ixx="0.000377997100917868"
+        ixy="0.000119214058249846"
+        ixz="-3.02342954347895E-07"
+        iyy="0.000268629105667674"
+        iyz="1.22694943189681E-06"
+        izz="0.000628262155444865" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/Hip .STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/Hip .STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Hip_Joint"
+    type="continuous">
+    <origin
+      xyz="0.01 0.10142 0.05862"
+      rpy="-1.5708 1.1519 -1.5708" />
+    <parent
+      link="body" />
+    <child
+      link="Hip " />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="ass">
+    <inertial>
+      <origin
+        xyz="-0.0623943391887377 -0.0184569190946536 0.002500000098111"
+        rpy="0 0 0" />
+      <mass
+        value="0.168965570136856" />
+      <inertia
+        ixx="5.36272380819843E-05"
+        ixy="-0.000113601145131811"
+        ixz="-1.76854555754921E-08"
+        iyy="0.000404055922120646"
+        iyz="5.97865257450239E-08"
+        izz="0.000435496136500738" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/ass.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/ass.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_ass"
+    type="continuous">
+    <origin
+      xyz="0.0441421232523991 -0.0679748148564586 -0.00249999999999997"
+      rpy="0 0 0" />
+    <parent
+      link="Hip " />
+    <child
+      link="ass" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="ass_hip_link2_2">
+    <inertial>
+      <origin
+        xyz="-0.142559407462068 0.159091122242886 -0.033867834393446"
+        rpy="0 0 0" />
+      <mass
+        value="7.10511366302876" />
+      <inertia
+        ixx="0.0762420815484726"
+        ixy="0.0223133529910027"
+        ixz="5.76452759145254E-05"
+        iyy="0.189273959771324"
+        iyz="-0.000111198042110563"
+        izz="0.238444030427425" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/ass_hip_link2_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/ass_hip_link2_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_ass_hip_link2_2"
+    type="continuous">
+    <origin
+      xyz="-0.13423028971569 -0.0397067687097334 0.03675"
+      rpy="0 0 0" />
+    <parent
+      link="ass" />
+    <child
+      link="ass_hip_link2_2" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="hip_link_1_2">
+    <inertial>
+      <origin
+        xyz="3.7059477847011E-05 -0.0920278339478145 0.0483896365350803"
+        rpy="0 0 0" />
+      <mass
+        value="0.111289535295604" />
+      <inertia
+        ixx="0.000285156498876112"
+        ixy="-3.75973935903712E-07"
+        ixz="1.95373903661756E-07"
+        iyy="4.4946507284634E-05"
+        iyz="4.997959962771E-05"
+        izz="0.000272750912961168" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/hip_link_1_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cury/meshes/hip_link_1_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="hip_link_1_2_joint"
+    type="continuous">
+    <origin
+      xyz="0.01 0.14935 0.077917"
+      rpy="-0.41887 0 0" />
+    <parent
+      link="body" />
+    <child
+      link="hip_link_1_2" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+</robot>
