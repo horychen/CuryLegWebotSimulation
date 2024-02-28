@@ -5,7 +5,7 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/cde3545026851a
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/eaaa8eb2ffd5ed185c23ffdda4ba8bfdc2ced6f3/projects/objects/lights/protos/FloorLight.proto"
 
 WorldInfo {
-  basicTimeStep 36
+  basicTimeStep 5
   contactProperties [
     ContactProperties {
       maxContactJoints 300
@@ -13,8 +13,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.26562514825563116 0.09098321871890647 0.9597735850322834 2.5063594991971803
-  position 2.1095032584454843 -1.4922733406048831 1.892318790414919
+  orientation -0.2706272102879404 0.08223446737653356 0.9591654734335807 2.5743890958163744
+  position 2.2101249925295896 -1.3530497279936387 1.9168638226578
   follow "Cury"
 }
 Robot {
@@ -46,7 +46,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.0105 0.35039 0.3717
-        rotation -1 0 0 0.43307085550312224
+        rotation -1 0 0 0.43307085550292074
         children [
           Shape {
             appearance DEF shank_material PBRAppearance {
@@ -73,7 +73,7 @@ Robot {
             ]
             endPoint Solid {
               translation -0.0235 0.029501 0.074362
-              rotation 0.0047431309412606865 0.9999775025531471 0.0047431104187504024 1.5708224976999203
+              rotation 0.004743130941260561 0.9999775025531471 0.0047431104187504024 1.5708224976999203
               children [
                 Shape {
                   appearance DEF knee_material PBRAppearance {
@@ -255,7 +255,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.0105 0.30247 0.3524
-        rotation 3.998696763634935e-06 0.977799689358635 -0.2095418036434909 3.141594009452091
+        rotation 3.998696763654836e-06 0.977799689358635 -0.2095418036434909 3.141594009452091
         children [
           Shape {
             appearance DEF shank_link_1_1_material PBRAppearance {
@@ -297,7 +297,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.0905 0.13244 0.27812
-        rotation -1 0 0 0.41586642486053044
+        rotation -1 0 0 0.4158664248605294
         children [
           Shape {
             appearance DEF motor_hip_material PBRAppearance {
@@ -411,6 +411,8 @@ Robot {
             translation 0.0721221 0.0099209 0
             rotation 0 0 1 0.415
             children [
+              GPS {
+              }
               SliderJoint {
                 jointParameters JointParameters {
                   position 0.48042118394001365
@@ -558,7 +560,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.01 0.14935 0.077917
-        rotation -1 0 0 0.4118005079102928
+        rotation -1 0 0 0.41180050791029393
         children [
           Shape {
             appearance DEF hip_link_1_2_material PBRAppearance {
