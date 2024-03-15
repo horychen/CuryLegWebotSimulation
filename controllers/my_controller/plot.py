@@ -1,9 +1,15 @@
 ''' Time step is 5ms '''
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 import numpy as np
 import os
 
 SAMPLE_PERIOD = 0.005
+plt.style.use('bmh')
+mpl.rc('font', family='Times New Roman', size=10.0)
+mpl.rc('legend', fontsize=10)
+mpl.rcParams['lines.linewidth'] = 0.75
+mpl.rcParams['mathtext.fontset'] = 'stix'
 
 
 def load_data():
@@ -12,6 +18,8 @@ def load_data():
         os._exit(0)
     with open(os.path.dirname(__file__)+'/record.npy', 'rb') as f:
         data = np.load(f, allow_pickle=True).item()
+    for key in data.keys():
+        data[key] = data[key][603:1019]
     return data
 
 def plot_data(data):
