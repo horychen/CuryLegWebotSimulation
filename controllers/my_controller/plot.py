@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import numpy as np
 import os
+import custom_controllers as cc
 
 SAMPLE_PERIOD = 0.005
 plt.style.use('bmh')
@@ -102,5 +103,9 @@ if __name__ == "__main__":
     calc_torque(data)
     calc_velocity(data)
     plot_data(data)
+    tester = cc.controllerTest()
+    tester.plot_compare_distance(data)
+    tester.plot_compare_angle(data)
+    plt.show()
 
 

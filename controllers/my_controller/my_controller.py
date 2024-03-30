@@ -108,6 +108,10 @@ motor_hip.setPosition(hip_trace[counter])
 # Main loop:
 # - perform simulation steps until Webots is stopping the controller
 while robot.step(timestep) != -1:
+    print("hip angle: {:.4f}".format(hip.getValue()), end='\t')
+    print("shank angle: {:.4f}".format(shank.getValue()), end='\t')
+    print("screw hip distance: {:.4f}".format(screw_hip_joint_sensor.getValue()), end='\t')
+    print("screw shank distance: {:.4f}".format(screw_shank_joint_sensor.getValue()), end='\n')
     
     if robot.getTime() < 2:
         record()
